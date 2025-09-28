@@ -4,7 +4,7 @@
 
 class ChildProcess {
 private:
-    int pid;
+    pid_t pid;
     Pipe* pipe;
     std::string file_name;
     bool is_child1;
@@ -12,5 +12,5 @@ private:
 public:
     ChildProcess(Pipe* p, const std::string& f, bool is_c1);
     void execute();
-    int getPid() const;
+    pid_t getPid() const;
 };

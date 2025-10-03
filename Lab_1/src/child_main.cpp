@@ -3,6 +3,11 @@
 #include <string>
 #include "childProcessor.hpp"
 
+#ifdef _WIN32
+    #include <windows.h>
+    #include <io.h>
+#endif
+
 int main(int argc, char* argv[]) {
     if (argc != 4) {
         std::cerr << "Использование: " << argv[0] << " <prefix> <output_file> <read_fd>" << std::endl;

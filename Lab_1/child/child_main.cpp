@@ -19,15 +19,8 @@ int main(int argc, char* argv[]) {
     std::string output_file = argv[2];
 
 #ifdef _WIN32
-    // В Windows передаем дескриптор через временный pipe
-    HANDLE temp_pipe = (HANDLE)(intptr_t)std::stoll(argv[3]);
-    HANDLE read_fd;
-    DWORD read;
-    if (!ReadFile(temp_pipe, &read_fd, sizeof(read_fd), &read, NULL)) {
-        std::cerr << "Ошибка получения дескриптора" << std::endl;
-        return 1;
-    }
-    CloseHandle(temp_pipe);
+    // В Windows просто преобразуем переданное число обратно в HANDLE
+    HANDLE read_fd = reinterpret_cast<HANDLE>(std::stoll(argv[3]));
 #else
     int read_fd = std::stoi(argv[3]);
 #endif

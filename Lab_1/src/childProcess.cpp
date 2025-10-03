@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <string>
+#include <iostream>
 #include "childProcess.hpp"
-#include "childProcessor.hpp"
 
 ChildProcess::ChildProcess(Pipe* p, const std::string& f, bool is_c1) 
     : pipe(p), file_name(f), is_child1(is_c1), pid(-1) {}
@@ -13,12 +13,21 @@ void ChildProcess::execute() {
         exit(1);
     }
 
-    if (pid == 0) { 
+    if (pid == 0) {
         close(pipe->getWriteFd());
+        
+        std::string read_fd_str = std::to_string(pipe->getReadFd());
         std::string prefix = is_child1 ? "child1" : "child2";
-        ChildProcessor processor(prefix);
-        processor.process(pipe->getReadFd(), file_name);
-        exit(0);
+        
+        execl("./child", "./child", prefix.c_str(), file_name.c_str(), 
+              read_fd_str.c_str(), nullptr);
+        
+        perror("Не удалось запустить дочернюю программу");
+        exit(1);
+    }
+    else
+    {
+        close(pipe->getReadFd());
     }
 }
 

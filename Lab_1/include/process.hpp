@@ -1,5 +1,6 @@
 #pragma once
 #include "pipe.hpp"
+#include "childProcess.hpp"
 #include <string>
 
 class ChildProcess;

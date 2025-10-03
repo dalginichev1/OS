@@ -23,12 +23,12 @@ int ChildProcessor::process(int read_fd, const std::string& output_file) {
     }
 
     ssize_t count;
-    while ((count = read(read_fd, buffer, sizeof(buffer) - 1)) > 0) {
+    while ((count = read(read_fd, buffer, sizeof(buffer) - 1)) > 0) 
+    {
         buffer[count] = '\0';
         std::string line(buffer);
         std::string reversed = reverseString(line);
         write(fd, reversed.c_str(), reversed.length());
-        write(fd, "\n", 1);
     }
 
     if (count == -1) {

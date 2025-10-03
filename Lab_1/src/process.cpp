@@ -4,7 +4,6 @@
 #include <fcntl.h>
 #include <string>
 #include "process.hpp"
-#include "childProcess.hpp"
 
 ParentProcess::ParentProcess() {
     std::string file1, file2;
@@ -29,19 +28,25 @@ void ParentProcess::start() {
     std::string line;
     int line_number = 0;
 
-    while (std::getline(std::cin, line)) {
+    while (std::getline(std::cin, line)) 
+    {
         line_number++;
-
-        if (line_number % 2 == 1) { 
+        if (line_number % 2 == 1) {
             write(pipe1->getWriteFd(), line.c_str(), line.length());
-        } else { 
+            write(pipe1->getWriteFd(), "\n", 1);
+        } else {
             write(pipe2->getWriteFd(), line.c_str(), line.length());
+            write(pipe2->getWriteFd(), "\n", 1);
         }
     }
 
     close(pipe1->getWriteFd());
     close(pipe2->getWriteFd());
-
+/*
+    int status1, status2;
+    waitpid(child1->getPid(), &status1, 0);
+    waitpid(child2->getPid(), &status1, 0);
+*/
 }
 
 ParentProcess::~ParentProcess() {

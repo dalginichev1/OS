@@ -52,15 +52,15 @@ void ParentProcess::start() {
     close(pipe1->getWriteFd());
     close(pipe2->getWriteFd());
 
-//#ifdef _WIN32
-//  Sleep(1000); 
-//#else
+#ifdef _WIN32
+    Sleep(1000); 
+#else
     /*
     int status1, status2;
     waitpid(child1->getPid(), &status1, 0);
     waitpid(child2->getPid(), &status2, 0);
     */
-//#endif
+#endif
 }
 
 ParentProcess::~ParentProcess() {

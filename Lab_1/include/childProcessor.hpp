@@ -1,4 +1,12 @@
 #pragma once
+#ifdef _WIN32
+#include <windows.h>
+#include <io.h>
+#else
+#include <unistd.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#endif
 #include <string>
 
 class ChildProcessor {

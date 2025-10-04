@@ -390,4 +390,9 @@
 274150 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
 274130 +++ killed by SIGINT +++
 274151 +++ killed by SIGINT +++
-274150 +++ killed by SIGINT +++
+274150 +++ 273892 <... read resumed>0x7ffe3cf07800, 255) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+273891 <... read resumed>0x7ffc2e855300, 255) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+273891 --- SIGHUP {si_signo=SIGHUP, si_code=SI_USER, si_pid=1119, si_uid=1000} ---
+273892 --- SIGHUP {si_signo=SIGHUP, si_code=SI_USER, si_pid=1119, si_uid=1000} ---
+273891 +++ killed by SIGHUP +++
+273892 +++ killed by SIGHUP +++

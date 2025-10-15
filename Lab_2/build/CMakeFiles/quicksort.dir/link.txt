@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/quicksort.dir/src/main.cpp.o CMakeFiles/quicksort.dir/src/quicksort.cpp.o CMakeFiles/quicksort.dir/src/thread.cpp.o -o quicksort 

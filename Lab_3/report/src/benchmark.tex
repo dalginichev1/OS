@@ -1,0 +1,49 @@
+\section{Результаты тестирования}
+
+\subsection{Пример работы программы}
+
+\begin{verbatim}
+Введите имя файла для child1: file1
+Введите имя файла для child2: file2
+child1: запущен с shared memory /child1_shm и выходным файлом file1
+child2: запущен с shared memory /child2_shm и выходным файлом file2
+hello
+big
+create
+table
+Данные отправлены в дочерние процессы
+child1: получено 'hello\ncreate\n'
+child2: получено 'big\ntable\n'
+child1: обработал и записал данные в file1
+child2: обработал и записал данные в file2
+Данные обработаны дочерними процессами
+Дочерние процессы завершили работу
+\end{verbatim}
+
+\subsection{Содержимое выходных файлов}
+
+\textbf{file1:}
+\begin{verbatim}
+olleh
+etaerc
+\end{verbatim}
+
+\textbf{file2:}
+\begin{verbatim}
+gib
+elbat
+\end{verbatim}
+
+\subsection{Анализ системных вызовов}
+
+В ходе работы программы были использованы следующие ключевые системные вызовы:
+
+\begin{itemize}
+    \item \texttt{shm\_open} - создание/открытие разделяемой памяти
+    \item \texttt{mmap} - отображение памяти в адресное пространство процесса
+    \item \texttt{sem\_init} - инициализация семафоров
+    \item \texttt{sem\_wait/sem\_post} - операции синхронизации
+    \item \texttt{fork} - создание дочерних процессов
+    \item \texttt{execve} - запуск исполняемых файлов
+    \item \texttt{waitpid} - ожидание завершения дочерних процессов
+\end{itemize}

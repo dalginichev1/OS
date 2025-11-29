@@ -1,0 +1,6 @@
+/home/daalginichev/OS/Lab_4/build/CMakeFiles/real1.dir
+/home/daalginichev/OS/Lab_4/build/CMakeFiles/real2.dir
+/home/daalginichev/OS/Lab_4/build/CMakeFiles/program1.dir
+/home/daalginichev/OS/Lab_4/build/CMakeFiles/program2.dir
+/home/daalginichev/OS/Lab_4/build/CMakeFiles/edit_cache.dir
+/home/daalginichev/OS/Lab_4/build/CMakeFiles/rebuild_cache.dir

@@ -6,7 +6,7 @@ int main() {
     AbsDerivative* der = nullptr;
     AbsSort* sorter = nullptr;
 
-    if (!loader.Load("libcontract1.so")) {
+    if (!loader.Load("./libcontract1.so")) {
         std::cout << "Initial load error: " << loader.Error() << std::endl;
         return 1;
     }

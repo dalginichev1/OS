@@ -1,0 +1,310 @@
+\section{Исходная программа}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={main.cpp (program1) - пример статического использования библиотеки с контрактом 1},captionpos=b]{~/OS/Lab_4/program_1/main.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={main.cpp (program2) - пример динамического использования библиотек с переключением контрактов},captionpos=b]{~/OS/Lab_4/program_2/main.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={DynamicLoader.cpp - класс, выгружающий библиотеки в память во время выполнения программы},captionpos=b]{~/OS/Lab_4/program_2/DynamicLoader.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={fact1.cpp - сборщик динамической библиотеки, реализующей контракт 1},captionpos=b]{~/OS/Lab_4/lib_1/fact1.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={fact2.cpp - сборщик динамической библиотеки, реализующей контракт 2},captionpos=b]{~/OS/Lab_4/lib_2/fact2.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={Derivative1.cpp - класс, реализующий 1-й способ нахождения производной cos(x)},captionpos=b]{~/OS/Lab_4/lib_1/Derivative_1.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={Derivative2.cpp - класс, реализующий 2-й способ нахождения производной cos(x)},captionpos=b]{~/OS/Lab_4/lib_2/Derivative_2.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={BubbleSort.cpp - класс, алгоритм пузырьковой сортировки для целочисленных массивов},captionpos=b]{~/OS/Lab_4/lib_1/BubbleSort.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={QuickSort.cpp - класс, алгоритм быстрой сортировки для целочисленных массивов},captionpos=b]{~/OS/Lab_4/lib_2/QuickSort.cpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={AbsDerivative.hpp - абстрактный класс для реализации производной косинуса},captionpos=b]{~/OS/Lab_4/include/AbsDerivative.hpp}
+\end{center}
+
+\begin{center}
+\lstinputlisting[language=C++,caption={AbsSort.hpp - абстрактный класс для реализации сортировки целочисленных массивов},captionpos=b]{~/OS/Lab_4/include/AbsSort.hpp}
+\end{center}
+
+
+\section{Системные вызовы статической библиотеки}
+
+\begin{verbatim}
+execve("./program1", ["./program1"], 0x7ffd9a10e080 /* 36 vars */) = 0
+brk(NULL)                               = 0x55a72a072000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7be415b94000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/daalginichev/OS/Lab_4/build/glibc-hwcaps/x86-64-v3/libcontract1.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/daalginichev/OS/Lab_4/build/glibc-hwcaps/x86-64-v3/", 0x7ffcc751a9b0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/daalginichev/OS/Lab_4/build/glibc-hwcaps/x86-64-v2/libcontract1.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/daalginichev/OS/Lab_4/build/glibc-hwcaps/x86-64-v2/", 0x7ffcc751a9b0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/daalginichev/OS/Lab_4/build/libcontract1.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=22160, ...}) = 0
+mmap(NULL, 20632, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7be415b8e000
+mmap(0x7be415b90000, 4096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7be415b90000
+mmap(0x7be415b91000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7be415b91000
+mmap(0x7be415b92000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7be415b92000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/daalginichev/OS/Lab_4/build/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=34331, ...}) = 0
+mmap(NULL, 34331, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7be415b85000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=2592224, ...}) = 0
+mmap(NULL, 2609472, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7be415800000
+mmap(0x7be41589d000, 1343488, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x9d000) = 0x7be41589d000
+mmap(0x7be4159e5000, 552960, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e5000) = 0x7be4159e5000
+mmap(0x7be415a6c000, 57344, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x26b000) = 0x7be415a6c000
+mmap(0x7be415a7a000, 12608, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7be415a7a000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/daalginichev/OS/Lab_4/build/libc.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+fstat(3, {st_mode=S_IFREG|0755, st_size=2125328, ...}) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2170256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7be415400000
+mmap(0x7be415428000, 1605632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7be415428000
+mmap(0x7be4155b0000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b0000) = 0x7be4155b0000
+mmap(0x7be4155ff000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1fe000) = 0x7be4155ff000
+mmap(0x7be415605000, 52624, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7be415605000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=952616, ...}) = 0
+mmap(NULL, 950296, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7be415a9c000
+mmap(0x7be415aac000, 520192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x10000) = 0x7be415aac000
+mmap(0x7be415b2b000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x8f000) = 0x7be415b2b000
+mmap(0x7be415b83000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe7000) = 0x7be415b83000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=183024, ...}) = 0
+mmap(NULL, 185256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7be4157d2000
+mmap(0x7be4157d6000, 147456, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x7be4157d6000
+mmap(0x7be4157fa000, 16384, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7be4157fa000
+mmap(0x7be4157fe000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2b000) = 0x7be4157fe000
+close(3)                                = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7be415a9a000
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7be415a97000
+arch_prctl(ARCH_SET_FS, 0x7be415a97740) = 0
+set_tid_address(0x7be415a97a10)         = 40263
+set_robust_list(0x7be415a97a20, 24)     = 0
+rseq(0x7be415a98060, 0x20, 0, 0x53053053) = 0
+mprotect(0x7be4155ff000, 16384, PROT_READ) = 0
+mprotect(0x7be4157fe000, 4096, PROT_READ) = 0
+mprotect(0x7be415b83000, 4096, PROT_READ) = 0
+mprotect(0x7be415a6c000, 45056, PROT_READ) = 0
+mprotect(0x7be415b92000, 4096, PROT_READ) = 0
+mprotect(0x55a72456e000, 4096, PROT_READ) = 0
+mprotect(0x7be415bcc000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7be415b85000, 34331)           = 0
+futex(0x7be415a7a7bc, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+getrandom("\xf4\x58\xc1\xde\x95\xd0\x9b\x3e", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x55a72a072000
+brk(0x55a72a093000)                     = 0x55a72a093000
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x5), ...}) = 0
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265, \321\207\321\202\320\276 \321\205\320\276\321\202\320\270\321"..., 51) = 51
+write(1, "0 \320\232\320\276\320\275\320\265\321\206 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\274\321\213\n", 32) = 32
+write(1, "1 \320\237\321\200\320\276\320\270\320\267\320\262\320\276\320\264\320\275\320\260\321\217\n", 25) = 25
+write(1, "2 \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260\n", 23) = 23
+fstat(0, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x5), ...}) = 0
+read(0, "1\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\202\320\276\321\207\320\272\321\203\n", 26) = 26
+read(0, "0\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\276\321\202\320\272\320\273\320\276\320\275\320\265\320\275\320"..., 36) = 36
+read(0, "0.00000001\n", 1024)           = 11
+write(1, "0\n", 2)                      = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265, \321\207\321\202\320\276 \321\205\320\276\321\202\320\270\321"..., 51) = 51
+write(1, "0 \320\232\320\276\320\275\320\265\321\206 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\274\321\213\n", 32) = 32
+write(1, "1 \320\237\321\200\320\276\320\270\320\267\320\262\320\276\320\264\320\275\320\260\321\217\n", 25) = 25
+write(1, "2 \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260\n", 23) = 23
+read(0, "2\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\200\320\260\320\267\320\274\320\265\321\200 \320\274\320\260"..., 43) = 43
+read(0, "5\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\215\320\273\320\265\320\274\320\265\320\275\321\202\321\213 "..., 47) = 47
+read(0, "5 4 3 2 1\n", 1024)            = 10
+write(1, "1 2 3 4 5 \n", 11)            = 11
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265, \321\207\321\202\320\276 \321\205\320\276\321\202\320\270\321"..., 51) = 51
+write(1, "0 \320\232\320\276\320\275\320\265\321\206 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\274\321\213\n", 32) = 32
+write(1, "1 \320\237\321\200\320\276\320\270\320\267\320\262\320\276\320\264\320\275\320\260\321\217\n", 25) = 25
+write(1, "2 \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260\n", 23) = 23
+read(0, "0\n", 1024)                    = 2
+lseek(0, -1, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+exit_group(0)                           = ?
++++ exited with 0 +++
+\end{verbatim}
+
+\section{Системные вызовы динамических библиотек}
+
+\begin{verbatim}
+execve("./program2", ["./program2"], 0x7fffaf0efe10 /* 36 vars */) = 0
+brk(NULL)                               = 0x60bbb5bf5000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x725ea6607000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=34331, ...}) = 0
+mmap(NULL, 34331, PROT_READ, MAP_PRIVATE, 3, 0) = 0x725ea65fe000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=2592224, ...}) = 0
+mmap(NULL, 2609472, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x725ea6200000
+mmap(0x725ea629d000, 1343488, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x9d000) = 0x725ea629d000
+mmap(0x725ea63e5000, 552960, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e5000) = 0x725ea63e5000
+mmap(0x725ea646c000, 57344, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x26b000) = 0x725ea646c000
+mmap(0x725ea647a000, 12608, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x725ea647a000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=183024, ...}) = 0
+mmap(NULL, 185256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x725ea65d0000
+mmap(0x725ea65d4000, 147456, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x725ea65d4000
+mmap(0x725ea65f8000, 16384, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x725ea65f8000
+mmap(0x725ea65fc000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2b000) = 0x725ea65fc000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+fstat(3, {st_mode=S_IFREG|0755, st_size=2125328, ...}) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2170256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x725ea5e00000
+mmap(0x725ea5e28000, 1605632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x725ea5e28000
+mmap(0x725ea5fb0000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b0000) = 0x725ea5fb0000
+mmap(0x725ea5fff000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1fe000) = 0x725ea5fff000
+mmap(0x725ea6005000, 52624, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x725ea6005000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=952616, ...}) = 0
+mmap(NULL, 950296, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x725ea64e7000
+mmap(0x725ea64f7000, 520192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x10000) = 0x725ea64f7000
+mmap(0x725ea6576000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x8f000) = 0x725ea6576000
+mmap(0x725ea65ce000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe7000) = 0x725ea65ce000
+close(3)                                = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x725ea64e5000
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x725ea64e2000
+arch_prctl(ARCH_SET_FS, 0x725ea64e2740) = 0
+set_tid_address(0x725ea64e2a10)         = 38775
+set_robust_list(0x725ea64e2a20, 24)     = 0
+rseq(0x725ea64e3060, 0x20, 0, 0x53053053) = 0
+mprotect(0x725ea5fff000, 16384, PROT_READ) = 0
+mprotect(0x725ea65ce000, 4096, PROT_READ) = 0
+mprotect(0x725ea65fc000, 4096, PROT_READ) = 0
+mprotect(0x725ea646c000, 45056, PROT_READ) = 0
+mprotect(0x60bba64b7000, 4096, PROT_READ) = 0
+mprotect(0x725ea663f000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x725ea65fe000, 34331)           = 0
+futex(0x725ea647a7bc, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+getrandom("\x55\x7d\xae\x92\x05\x21\x91\x46", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x60bbb5bf5000
+brk(0x60bbb5c16000)                     = 0x60bbb5c16000
+openat(AT_FDCWD, "./libcontract1.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=22160, ...}) = 0
+getcwd("/home/daalginichev/OS/Lab_4/build", 128) = 34
+mmap(NULL, 20632, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x725ea6601000
+mmap(0x725ea6603000, 4096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x725ea6603000
+mmap(0x725ea6604000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x725ea6604000
+mmap(0x725ea6605000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x725ea6605000
+close(3)                                = 0
+mprotect(0x725ea6605000, 4096, PROT_READ) = 0
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x5), ...}) = 0
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265, \321\207\321\202\320\276 \321\205\320\276\321\202\320\270\321"..., 51) = 51
+write(1, "-1 \320\232\320\276\320\275\320\265\321\206 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\274\321\213"..., 33) = 33
+write(1, "0 \320\241\320\274\320\265\320\275\320\260 \320\261\320\270\320\261\320\273\320\270\320\276\321\202\320\265\320\272\320"..., 34) = 34
+write(1, "1 \320\237\321\200\320\276\320\270\320\267\320\262\320\276\320\264\320\275\320\260\321\217\n", 25) = 25
+write(1, "2 \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260\n", 23) = 23
+fstat(0, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x5), ...}) = 0
+read(0, "1\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\202\320\276\321\207\320\272\321\203\n", 26) = 26
+read(0, "0\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\276\321\202\320\272\320\273\320\276\320\275\320\265\320\275\320"..., 36) = 36
+read(0, "0.00000000001\n", 1024)        = 14
+write(1, "0\n", 2)                      = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265, \321\207\321\202\320\276 \321\205\320\276\321\202\320\270\321"..., 51) = 51
+write(1, "-1 \320\232\320\276\320\275\320\265\321\206 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\274\321\213"..., 33) = 33
+write(1, "0 \320\241\320\274\320\265\320\275\320\260 \320\261\320\270\320\261\320\273\320\270\320\276\321\202\320\265\320\272\320"..., 34) = 34
+write(1, "1 \320\237\321\200\320\276\320\270\320\267\320\262\320\276\320\264\320\275\320\260\321\217\n", 25) = 25
+write(1, "2 \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260\n", 23) = 23
+read(0, "2\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\200\320\260\320\267\320\274\320\265\321\200 \320\274\320\260"..., 43) = 43
+read(0, "5\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\215\320\273\320\265\320\274\320\265\320\275\321\202\321\213 "..., 47) = 47
+read(0, "5 4 3 2 1\n", 1024)            = 10
+write(1, "1 2 3 4 5 \n", 11)            = 11
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265, \321\207\321\202\320\276 \321\205\320\276\321\202\320\270\321"..., 51) = 51
+write(1, "-1 \320\232\320\276\320\275\320\265\321\206 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\274\321\213"..., 33) = 33
+write(1, "0 \320\241\320\274\320\265\320\275\320\260 \320\261\320\270\320\261\320\273\320\270\320\276\321\202\320\265\320\272\320"..., 34) = 34
+write(1, "1 \320\237\321\200\320\276\320\270\320\267\320\262\320\276\320\264\320\275\320\260\321\217\n", 25) = 25
+write(1, "2 \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260\n", 23) = 23
+read(0, "0\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\275\320\260\320\267\320\262\320\260\320\275\320\270\320\265 "..., 53) = 53
+read(0, "./libcontract2.so\n", 1024)    = 18
+munmap(0x725ea6601000, 20632)           = 0
+openat(AT_FDCWD, "./libcontract2.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=22264, ...}) = 0
+getcwd("/home/daalginichev/OS/Lab_4/build", 128) = 34
+mmap(NULL, 20640, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x725ea6601000
+mmap(0x725ea6603000, 4096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x725ea6603000
+mmap(0x725ea6604000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x725ea6604000
+mmap(0x725ea6605000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x725ea6605000
+close(3)                                = 0
+mprotect(0x725ea6605000, 4096, PROT_READ) = 0
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265, \321\207\321\202\320\276 \321\205\320\276\321\202\320\270\321"..., 51) = 51
+write(1, "-1 \320\232\320\276\320\275\320\265\321\206 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\274\321\213"..., 33) = 33
+write(1, "0 \320\241\320\274\320\265\320\275\320\260 \320\261\320\270\320\261\320\273\320\270\320\276\321\202\320\265\320\272\320"..., 34) = 34
+write(1, "1 \320\237\321\200\320\276\320\270\320\267\320\262\320\276\320\264\320\275\320\260\321\217\n", 25) = 25
+write(1, "2 \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260\n", 23) = 23
+read(0, "1\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\202\320\276\321\207\320\272\321\203\n", 26) = 26
+read(0, "0\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\276\321\202\320\272\320\273\320\276\320\275\320\265\320\275\320"..., 36) = 36
+read(0, "0.0000001\n", 1024)            = 10
+write(1, "0\n", 2)                      = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265, \321\207\321\202\320\276 \321\205\320\276\321\202\320\270\321"..., 51) = 51
+write(1, "-1 \320\232\320\276\320\275\320\265\321\206 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\274\321\213"..., 33) = 33
+write(1, "0 \320\241\320\274\320\265\320\275\320\260 \320\261\320\270\320\261\320\273\320\270\320\276\321\202\320\265\320\272\320"..., 34) = 34
+write(1, "1 \320\237\321\200\320\276\320\270\320\267\320\262\320\276\320\264\320\275\320\260\321\217\n", 25) = 25
+write(1, "2 \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260\n", 23) = 23
+read(0, "2\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\200\320\260\320\267\320\274\320\265\321\200 \320\274\320\260"..., 43) = 43
+read(0, "5\n", 1024)                    = 2
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \321\215\320\273\320\265\320\274\320\265\320\275\321\202\321\213 "..., 47) = 47
+read(0, "5 4 3 2 1\n", 1024)            = 10
+write(1, "1 2 3 4 5 \n", 11)            = 11
+write(1, "\320\222\320\262\320\265\320\264\320\270\321\202\320\265, \321\207\321\202\320\276 \321\205\320\276\321\202\320\270\321"..., 51) = 51
+write(1, "-1 \320\232\320\276\320\275\320\265\321\206 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\274\321\213"..., 33) = 33
+write(1, "0 \320\241\320\274\320\265\320\275\320\260 \320\261\320\270\320\261\320\273\320\270\320\276\321\202\320\265\320\272\320"..., 34) = 34
+write(1, "1 \320\237\321\200\320\276\320\270\320\267\320\262\320\276\320\264\320\275\320\260\321\217\n", 25) = 25
+write(1, "2 \320\241\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\260\n", 23) = 23
+read(0, "-1\n", 1024)                   = 3
+munmap(0x725ea6601000, 20640)           = 0
+lseek(0, -1, SEEK_CUR)                  = -1 ESPIPE (Illegal seek)
+exit_group(0)                           = ?
++++ exited with 0 +++
+\end{verbatim}

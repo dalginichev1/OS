@@ -6,9 +6,21 @@ int main() {
     AbsDerivative* der = nullptr;
     AbsSort* sorter = nullptr;
 
-    loader.Load("./libreal1.so");
+    if (!loader.Load("libcontract1.so")) {
+        std::cout << "Initial load error: " << loader.Error() << std::endl;
+        return 1;
+    }
+    
     der = loader.CreateDerivative();
     sorter = loader.CreateSort();
+    
+    // Проверка создания объектов
+    if (!der || !sorter) {
+        std::cout << "Failed to create objects from initial library" << std::endl;
+        if (!der) std::cout << "Derivative object is null" << std::endl;
+        if (!sorter) std::cout << "Sort object is null" << std::endl;
+        return 1;
+    }
 
     while (true) {
         std::cout << "Введите, что хотите сделать" << std::endl;

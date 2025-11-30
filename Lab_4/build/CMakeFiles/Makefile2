@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /home/daalginichev/OS/Lab_4/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/real1.dir/all
-all: CMakeFiles/real2.dir/all
+all: CMakeFiles/contract1.dir/all
+all: CMakeFiles/contract2.dir/all
 all: CMakeFiles/program1.dir/all
 all: CMakeFiles/program2.dir/all
 .PHONY : all
@@ -74,72 +74,72 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/real1.dir/clean
-clean: CMakeFiles/real2.dir/clean
+clean: CMakeFiles/contract1.dir/clean
+clean: CMakeFiles/contract2.dir/clean
 clean: CMakeFiles/program1.dir/clean
 clean: CMakeFiles/program2.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/real1.dir
+# Target rules for target CMakeFiles/contract1.dir
 
 # All Build rule for target.
-CMakeFiles/real1.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/Lab_4/build/CMakeFiles --progress-num=6,7,8,9 "Built target real1"
-.PHONY : CMakeFiles/real1.dir/all
+CMakeFiles/contract1.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/Lab_4/build/CMakeFiles --progress-num=1,2,3,4 "Built target contract1"
+.PHONY : CMakeFiles/contract1.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/real1.dir/rule: cmake_check_build_system
+CMakeFiles/contract1.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/Lab_4/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/real1.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/contract1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/Lab_4/build/CMakeFiles 0
-.PHONY : CMakeFiles/real1.dir/rule
+.PHONY : CMakeFiles/contract1.dir/rule
 
 # Convenience name for target.
-real1: CMakeFiles/real1.dir/rule
-.PHONY : real1
+contract1: CMakeFiles/contract1.dir/rule
+.PHONY : contract1
 
 # clean rule for target.
-CMakeFiles/real1.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/clean
-.PHONY : CMakeFiles/real1.dir/clean
+CMakeFiles/contract1.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/clean
+.PHONY : CMakeFiles/contract1.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/real2.dir
+# Target rules for target CMakeFiles/contract2.dir
 
 # All Build rule for target.
-CMakeFiles/real2.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/Lab_4/build/CMakeFiles --progress-num=10,11,12,13 "Built target real2"
-.PHONY : CMakeFiles/real2.dir/all
+CMakeFiles/contract2.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/Lab_4/build/CMakeFiles --progress-num=5,6,7,8 "Built target contract2"
+.PHONY : CMakeFiles/contract2.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/real2.dir/rule: cmake_check_build_system
+CMakeFiles/contract2.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/Lab_4/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/real2.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/contract2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/Lab_4/build/CMakeFiles 0
-.PHONY : CMakeFiles/real2.dir/rule
+.PHONY : CMakeFiles/contract2.dir/rule
 
 # Convenience name for target.
-real2: CMakeFiles/real2.dir/rule
-.PHONY : real2
+contract2: CMakeFiles/contract2.dir/rule
+.PHONY : contract2
 
 # clean rule for target.
-CMakeFiles/real2.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/clean
-.PHONY : CMakeFiles/real2.dir/clean
+CMakeFiles/contract2.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/clean
+.PHONY : CMakeFiles/contract2.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/program1.dir
 
 # All Build rule for target.
-CMakeFiles/program1.dir/all: CMakeFiles/real1.dir/all
+CMakeFiles/program1.dir/all: CMakeFiles/contract1.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/program1.dir/build.make CMakeFiles/program1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/program1.dir/build.make CMakeFiles/program1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/Lab_4/build/CMakeFiles --progress-num=1,2 "Built target program1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/Lab_4/build/CMakeFiles --progress-num=9,10 "Built target program1"
 .PHONY : CMakeFiles/program1.dir/all
 
 # Build rule for subdir invocation for target.
@@ -162,15 +162,16 @@ CMakeFiles/program1.dir/clean:
 # Target rules for target CMakeFiles/program2.dir
 
 # All Build rule for target.
-CMakeFiles/program2.dir/all:
+CMakeFiles/program2.dir/all: CMakeFiles/contract1.dir/all
+CMakeFiles/program2.dir/all: CMakeFiles/contract2.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/program2.dir/build.make CMakeFiles/program2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/program2.dir/build.make CMakeFiles/program2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/Lab_4/build/CMakeFiles --progress-num=3,4,5 "Built target program2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/Lab_4/build/CMakeFiles --progress-num=11,12,13 "Built target program2"
 .PHONY : CMakeFiles/program2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/program2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/Lab_4/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/Lab_4/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/program2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/Lab_4/build/CMakeFiles 0
 .PHONY : CMakeFiles/program2.dir/rule

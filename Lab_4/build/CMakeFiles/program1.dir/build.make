@@ -92,7 +92,7 @@ program1_EXTERNAL_OBJECTS =
 
 program1: CMakeFiles/program1.dir/program_1/main.cpp.o
 program1: CMakeFiles/program1.dir/build.make
-program1: liblibreal1.so
+program1: libcontract1.so
 program1: CMakeFiles/program1.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/daalginichev/OS/Lab_4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable program1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/program1.dir/link.txt --verbose=$(VERBOSE)

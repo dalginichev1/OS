@@ -117,30 +117,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named real1
+# Target rules for targets named contract1
 
 # Build rule for target.
-real1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 real1
-.PHONY : real1
+contract1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 contract1
+.PHONY : contract1
 
 # fast build rule for target.
-real1/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/build
-.PHONY : real1/fast
+contract1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/build
+.PHONY : contract1/fast
 
 #=============================================================================
-# Target rules for targets named real2
+# Target rules for targets named contract2
 
 # Build rule for target.
-real2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 real2
-.PHONY : real2
+contract2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 contract2
+.PHONY : contract2
 
 # fast build rule for target.
-real2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/build
-.PHONY : real2/fast
+contract2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/build
+.PHONY : contract2/fast
 
 #=============================================================================
 # Target rules for targets named program1
@@ -173,7 +173,7 @@ lib_1/BubbleSort.o: lib_1/BubbleSort.cpp.o
 
 # target to build an object file
 lib_1/BubbleSort.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/lib_1/BubbleSort.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/lib_1/BubbleSort.cpp.o
 .PHONY : lib_1/BubbleSort.cpp.o
 
 lib_1/BubbleSort.i: lib_1/BubbleSort.cpp.i
@@ -181,7 +181,7 @@ lib_1/BubbleSort.i: lib_1/BubbleSort.cpp.i
 
 # target to preprocess a source file
 lib_1/BubbleSort.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/lib_1/BubbleSort.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/lib_1/BubbleSort.cpp.i
 .PHONY : lib_1/BubbleSort.cpp.i
 
 lib_1/BubbleSort.s: lib_1/BubbleSort.cpp.s
@@ -189,7 +189,7 @@ lib_1/BubbleSort.s: lib_1/BubbleSort.cpp.s
 
 # target to generate assembly for a file
 lib_1/BubbleSort.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/lib_1/BubbleSort.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/lib_1/BubbleSort.cpp.s
 .PHONY : lib_1/BubbleSort.cpp.s
 
 lib_1/Derivative_1.o: lib_1/Derivative_1.cpp.o
@@ -197,7 +197,7 @@ lib_1/Derivative_1.o: lib_1/Derivative_1.cpp.o
 
 # target to build an object file
 lib_1/Derivative_1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/lib_1/Derivative_1.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/lib_1/Derivative_1.cpp.o
 .PHONY : lib_1/Derivative_1.cpp.o
 
 lib_1/Derivative_1.i: lib_1/Derivative_1.cpp.i
@@ -205,7 +205,7 @@ lib_1/Derivative_1.i: lib_1/Derivative_1.cpp.i
 
 # target to preprocess a source file
 lib_1/Derivative_1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/lib_1/Derivative_1.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/lib_1/Derivative_1.cpp.i
 .PHONY : lib_1/Derivative_1.cpp.i
 
 lib_1/Derivative_1.s: lib_1/Derivative_1.cpp.s
@@ -213,7 +213,7 @@ lib_1/Derivative_1.s: lib_1/Derivative_1.cpp.s
 
 # target to generate assembly for a file
 lib_1/Derivative_1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/lib_1/Derivative_1.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/lib_1/Derivative_1.cpp.s
 .PHONY : lib_1/Derivative_1.cpp.s
 
 lib_1/fact1.o: lib_1/fact1.cpp.o
@@ -221,7 +221,7 @@ lib_1/fact1.o: lib_1/fact1.cpp.o
 
 # target to build an object file
 lib_1/fact1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/lib_1/fact1.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/lib_1/fact1.cpp.o
 .PHONY : lib_1/fact1.cpp.o
 
 lib_1/fact1.i: lib_1/fact1.cpp.i
@@ -229,7 +229,7 @@ lib_1/fact1.i: lib_1/fact1.cpp.i
 
 # target to preprocess a source file
 lib_1/fact1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/lib_1/fact1.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/lib_1/fact1.cpp.i
 .PHONY : lib_1/fact1.cpp.i
 
 lib_1/fact1.s: lib_1/fact1.cpp.s
@@ -237,7 +237,7 @@ lib_1/fact1.s: lib_1/fact1.cpp.s
 
 # target to generate assembly for a file
 lib_1/fact1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real1.dir/build.make CMakeFiles/real1.dir/lib_1/fact1.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract1.dir/build.make CMakeFiles/contract1.dir/lib_1/fact1.cpp.s
 .PHONY : lib_1/fact1.cpp.s
 
 lib_2/Derivative_2.o: lib_2/Derivative_2.cpp.o
@@ -245,7 +245,7 @@ lib_2/Derivative_2.o: lib_2/Derivative_2.cpp.o
 
 # target to build an object file
 lib_2/Derivative_2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/lib_2/Derivative_2.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/lib_2/Derivative_2.cpp.o
 .PHONY : lib_2/Derivative_2.cpp.o
 
 lib_2/Derivative_2.i: lib_2/Derivative_2.cpp.i
@@ -253,7 +253,7 @@ lib_2/Derivative_2.i: lib_2/Derivative_2.cpp.i
 
 # target to preprocess a source file
 lib_2/Derivative_2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/lib_2/Derivative_2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/lib_2/Derivative_2.cpp.i
 .PHONY : lib_2/Derivative_2.cpp.i
 
 lib_2/Derivative_2.s: lib_2/Derivative_2.cpp.s
@@ -261,7 +261,7 @@ lib_2/Derivative_2.s: lib_2/Derivative_2.cpp.s
 
 # target to generate assembly for a file
 lib_2/Derivative_2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/lib_2/Derivative_2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/lib_2/Derivative_2.cpp.s
 .PHONY : lib_2/Derivative_2.cpp.s
 
 lib_2/QuickSort.o: lib_2/QuickSort.cpp.o
@@ -269,7 +269,7 @@ lib_2/QuickSort.o: lib_2/QuickSort.cpp.o
 
 # target to build an object file
 lib_2/QuickSort.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/lib_2/QuickSort.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/lib_2/QuickSort.cpp.o
 .PHONY : lib_2/QuickSort.cpp.o
 
 lib_2/QuickSort.i: lib_2/QuickSort.cpp.i
@@ -277,7 +277,7 @@ lib_2/QuickSort.i: lib_2/QuickSort.cpp.i
 
 # target to preprocess a source file
 lib_2/QuickSort.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/lib_2/QuickSort.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/lib_2/QuickSort.cpp.i
 .PHONY : lib_2/QuickSort.cpp.i
 
 lib_2/QuickSort.s: lib_2/QuickSort.cpp.s
@@ -285,7 +285,7 @@ lib_2/QuickSort.s: lib_2/QuickSort.cpp.s
 
 # target to generate assembly for a file
 lib_2/QuickSort.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/lib_2/QuickSort.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/lib_2/QuickSort.cpp.s
 .PHONY : lib_2/QuickSort.cpp.s
 
 lib_2/fact2.o: lib_2/fact2.cpp.o
@@ -293,7 +293,7 @@ lib_2/fact2.o: lib_2/fact2.cpp.o
 
 # target to build an object file
 lib_2/fact2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/lib_2/fact2.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/lib_2/fact2.cpp.o
 .PHONY : lib_2/fact2.cpp.o
 
 lib_2/fact2.i: lib_2/fact2.cpp.i
@@ -301,7 +301,7 @@ lib_2/fact2.i: lib_2/fact2.cpp.i
 
 # target to preprocess a source file
 lib_2/fact2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/lib_2/fact2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/lib_2/fact2.cpp.i
 .PHONY : lib_2/fact2.cpp.i
 
 lib_2/fact2.s: lib_2/fact2.cpp.s
@@ -309,7 +309,7 @@ lib_2/fact2.s: lib_2/fact2.cpp.s
 
 # target to generate assembly for a file
 lib_2/fact2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/real2.dir/build.make CMakeFiles/real2.dir/lib_2/fact2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/contract2.dir/build.make CMakeFiles/contract2.dir/lib_2/fact2.cpp.s
 .PHONY : lib_2/fact2.cpp.s
 
 program_1/main.o: program_1/main.cpp.o
@@ -392,10 +392,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... contract1"
+	@echo "... contract2"
 	@echo "... program1"
 	@echo "... program2"
-	@echo "... real1"
-	@echo "... real2"
 	@echo "... lib_1/BubbleSort.o"
 	@echo "... lib_1/BubbleSort.i"
 	@echo "... lib_1/BubbleSort.s"

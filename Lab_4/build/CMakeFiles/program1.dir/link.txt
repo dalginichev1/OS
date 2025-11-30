@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/program1.dir/program_1/main.cpp.o -o program1  -Wl,-rpath,"\$ORIGIN" libcontract1.so 

@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/program2.dir/program_2/main.cpp.o CMakeFiles/program2.dir/program_2/DynamicLoader.cpp.o -o program2  -ldl 

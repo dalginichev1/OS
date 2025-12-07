@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -pthread CMakeFiles/battleship_client.dir/client/src/client.cpp.o CMakeFiles/battleship_client.dir/client/src/client_main.cpp.o CMakeFiles/battleship_client.dir/client/src/gameBoard.cpp.o CMakeFiles/battleship_client.dir/client/src/pipeClient.cpp.o -o battleship_client 

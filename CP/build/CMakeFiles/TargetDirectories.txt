@@ -1,0 +1,4 @@
+/home/daalginichev/OS/CP/build/CMakeFiles/battleship_server.dir
+/home/daalginichev/OS/CP/build/CMakeFiles/battleship_client.dir
+/home/daalginichev/OS/CP/build/CMakeFiles/edit_cache.dir
+/home/daalginichev/OS/CP/build/CMakeFiles/rebuild_cache.dir

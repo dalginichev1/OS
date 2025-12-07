@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -pthread CMakeFiles/battleship_server.dir/server/src/server.cpp.o CMakeFiles/battleship_server.dir/server/src/server_main.cpp.o CMakeFiles/battleship_server.dir/server/src/game.cpp.o CMakeFiles/battleship_server.dir/server/src/player.cpp.o CMakeFiles/battleship_server.dir/server/src/mutex.cpp.o -o battleship_server 

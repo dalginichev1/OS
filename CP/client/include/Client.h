@@ -1,12 +1,12 @@
-#pragma once
+#ifndef CLIENT_H
+#define CLIENT_H
 
 #include <string>
-
-#include "GameBoard.h"
 #include "PipeClient.h"
+#include "GameBoard.h"
 
 class Client {
-  private:
+private:
     PipeClient pipeClient;
     GameBoard playerBoard;
     GameBoard opponentBoard;
@@ -15,7 +15,14 @@ class Client {
     bool inGame;
     bool myTurn;
     bool gameOver;
-
+    
+public:
+    Client(const std::string& serverPipe);
+    ~Client() = default;
+    
+    void run();
+    
+private:
     void showMenu();
     void handleLogin();
     void handleCreateGame();
@@ -25,15 +32,12 @@ class Client {
     void handlePlaceShips();
     void handleGameLoop();
     void handleMakeShot();
-
+    
     bool sendCommand(const std::string& command);
     std::string receiveResponse();
-
+    
     void clearScreen();
     void waitForEnter();
-
-  public:
-    Client(const std::string& serverPipe);
-
-    void run();
 };
+
+#endif

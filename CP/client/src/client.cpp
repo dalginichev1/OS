@@ -1,49 +1,53 @@
 #include "Client.h"
-#include "Protocol.h"
+#include "../common/Protocol.h"
 #include <iostream>
 #include <sstream>
-#include <unistd.h>
+#include <thread>
+#include <chrono>
 #include <cstdlib>
 
-Client::Client(const std::string& serverPipe): pipeClient(serverPipe), loggedIn(false), inGame(false), myTurn(false), gameOver(false) {}
+Client::Client(const std::string& serverPipe) 
+    : pipeClient(serverPipe), loggedIn(false), inGame(false), 
+      myTurn(false), gameOver(false) {}
 
-void Client::run()
-{
+void Client::run() {
     clearScreen();
     std::cout << "=== Клиент Морской бой ===" << std::endl;
-
-    if (!pipeClient.connectToServer())
-    {
+    
+    // Подключаемся к серверу
+    if (!pipeClient.connectToServer()) {
         std::cout << "Не удалось подключиться к серверу" << std::endl;
         return;
     }
-
-    while (true)
-    {
-        if (!loggedIn) handleLogin();
-        else if (!inGame) showMenu();
-        else handleGameLoop();
+    
+    // Основной цикл
+    while (true) {
+        if (!loggedIn) {
+            handleLogin();
+        } else if (!inGame) {
+            showMenu();
+        } else {
+            handleGameLoop();
+        }
     }
 }
 
-void Client::showMenu()
-{
+void Client::showMenu() {
     clearScreen();
     std::cout << "=== Меню ===" << std::endl;
     std::cout << "Игрок: " << playerName << std::endl;
     std::cout << "1. Создать игру" << std::endl;
     std::cout << "2. Присоединиться к игре" << std::endl;
     std::cout << "3. Список игр" << std::endl;
-    std::cout << "4. Моя статистика" << std::endl;
-    std::cout << "5. Выход из игры" << std::endl;
-    std::cout << "Выберите действие" << std::endl;
-
+    std::cout << "4. Статистика" << std::endl;
+    std::cout << "5. Выйти" << std::endl;
+    std::cout << "Выберите действие: ";
+    
     int choice;
     std::cin >> choice;
     std::cin.ignore();
-
-    switch (choice)
-    {
+    
+    switch (choice) {
         case 1:
             handleCreateGame();
             break;
@@ -74,46 +78,16 @@ void Client::handleLogin() {
     std::string login;
     std::getline(std::cin, login);
     
-    // ПЕРЕПОДКЛЮЧАЕМСЯ, чтобы убедиться, что pipe создан
-    std::cout << "[CLIENT] Переподключаюсь к серверу..." << std::endl;
-    pipeClient.disconnect();
-    if (!pipeClient.connectToServer()) {
-        std::cout << "Ошибка подключения к серверу" << std::endl;
-        waitForEnter();
-        return;
-    }
-    
-    std::string myPipeName = pipeClient.getClientPipeName();
-    std::cout << "[CLIENT] Мой pipe: " << myPipeName << std::endl;
-    
-    // ЖДЕМ НЕМНОГО, чтобы сервер успел обработать
-    sleep(1);
-    
-    std::string command = Protocol::LOGIN + " " + login + " PIPE:" + myPipeName;
-    std::cout << "[CLIENT] Отправляю: " << command << std::endl;
-    
-    if (pipeClient.sendMessage(command)) {
-        std::cout << "[CLIENT] Команда отправлена, жду ответ 5 секунд..." << std::endl;
-        
-        // Ждем дольше
-        for (int i = 0; i < 5; i++) {
-            std::cout << "[CLIENT] Секунда " << (i+1) << "..." << std::endl;
-            std::string response = pipeClient.receiveMessage();
-            if (!response.empty()) {
-                std::cout << "[CLIENT] Получил ответ: '" << response << "'" << std::endl;
-                if (response.find(Protocol::OK) == 0) {
-                    playerName = login;
-                    loggedIn = true;
-                    std::cout << "Успешный вход!" << std::endl;
-                    waitForEnter();
-                    return;
-                }
-                break;
-            }
-            sleep(1);
+    std::string command = Protocol::LOGIN + " " + login;
+    if (sendCommand(command)) {
+        std::string response = receiveResponse();
+        if (response.find(Protocol::OK) == 0) {
+            playerName = login;
+            loggedIn = true;
+            std::cout << "Успешный вход!" << std::endl;
+        } else {
+            std::cout << "Ошибка: " << response << std::endl;
         }
-        
-        std::cout << "[CLIENT] Ответ не получен!" << std::endl;
     } else {
         std::cout << "Ошибка отправки команды" << std::endl;
     }
@@ -136,6 +110,7 @@ void Client::handleCreateGame() {
             inGame = true;
             std::cout << "Игра создана! Ожидаем второго игрока..." << std::endl;
             
+            // Ждем подключения второго игрока
             while (inGame && !gameOver) {
                 std::string msg = receiveResponse();
                 if (!msg.empty()) {
@@ -146,7 +121,7 @@ void Client::handleCreateGame() {
                         break;
                     }
                 }
-                usleep(500000);
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
             }
         } else {
             std::cout << "Ошибка: " << response << std::endl;
@@ -239,6 +214,7 @@ void Client::handlePlaceShips() {
     
     playerBoard.initialize();
     
+    // Размещаем корабли согласно правилам
     for (int type = 0; type < 5; type++) {
         int size = Constants::SHIP_TYPES[type][0];
         int count = Constants::SHIP_TYPES[type][1];
@@ -260,6 +236,7 @@ void Client::handlePlaceShips() {
                 
                 if (playerBoard.placeShip(x, y, size, orientation == 1)) {
                     placed = true;
+                    // Отправляем информацию о корабле на сервер
                     std::string command = Protocol::PLACE_SHIP + " " + 
                                          std::to_string(x) + " " + 
                                          std::to_string(y) + " " + 
@@ -274,11 +251,13 @@ void Client::handlePlaceShips() {
         }
     }
     
+    // Сообщаем серверу, что готовы
     std::cout << "Все корабли размещены!" << std::endl;
     sendCommand(Protocol::READY);
     
     std::cout << "Ожидаем готовности противника..." << std::endl;
     
+    // Ждем начала игры
     while (inGame && !gameOver) {
         std::string response = receiveResponse();
         if (!response.empty()) {
@@ -294,7 +273,7 @@ void Client::handlePlaceShips() {
                 break;
             }
         }
-        usleep(500000);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 }
 
@@ -302,6 +281,7 @@ void Client::handleGameLoop() {
     while (inGame && !gameOver) {
         clearScreen();
         
+        // Получаем текущее состояние доски
         sendCommand(Protocol::GET_BOARD);
         std::string boardResponse = receiveResponse();
         if (boardResponse.find(Protocol::BOARD_DATA) == 0) {
@@ -313,10 +293,12 @@ void Client::handleGameLoop() {
             handleMakeShot();
         } else {
             std::cout << "Ожидаем ход противника..." << std::endl;
+            // Ждем уведомления от сервера
             std::string response = receiveResponse();
             if (!response.empty()) {
                 if (response.find(Protocol::YOUR_TURN) == 0) {
                     myTurn = true;
+                    // Извлекаем информацию о выстреле противника
                     std::istringstream iss(response);
                     std::string cmd;
                     int x, y, hit;
@@ -345,6 +327,7 @@ void Client::handleGameLoop() {
         }
     }
     
+    // После окончания игры возвращаемся в меню
     if (gameOver) {
         gameOver = false;
         playerBoard.initialize();
@@ -368,10 +351,10 @@ void Client::handleMakeShot() {
         std::string response = receiveResponse();
         if (response.find(Protocol::HIT) == 0) {
             std::cout << "ПОПАДАНИЕ!" << std::endl;
-            myTurn = true;
+            myTurn = true; // При попадании ход остается
         } else if (response.find(Protocol::MISS) == 0) {
             std::cout << "ПРОМАХ!" << std::endl;
-            myTurn = false;
+            myTurn = false; // При промахе ход переходит
         } else if (response.find(Protocol::WIN) == 0) {
             std::cout << "ПОЗДРАВЛЯЕМ! ВЫ ВЫИГРАЛИ!" << std::endl;
             gameOver = true;
@@ -397,7 +380,7 @@ std::string Client::receiveResponse() {
 }
 
 void Client::clearScreen() {
-    std::cout << "\033[2J\033[1;1H";
+    std::cout << "\033[2J\033[1;1H"; // ANSI escape codes для очистки экрана
 }
 
 void Client::waitForEnter() {

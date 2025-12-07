@@ -1,7 +1,10 @@
-#pragma once
+#ifndef PROTOCOL_H
+#define PROTOCOL_H
+
 #include <string>
 
 namespace Protocol {
+    // Команды клиента
     const std::string CREATE_GAME = "CREATE";
     const std::string JOIN_GAME = "JOIN";
     const std::string GET_STATISTICS = "STATS";
@@ -12,7 +15,8 @@ namespace Protocol {
     const std::string LOGIN = "LOGIN";
     const std::string READY = "READY";
     const std::string GET_BOARD = "GET_BOARD";
-
+    
+    // Ответы сервера
     const std::string OK = "OK";
     const std::string ERROR = "ERROR";
     const std::string GAME_CREATED = "GAME_CREATED";
@@ -31,3 +35,5 @@ namespace Protocol {
     const std::string WAITING = "WAITING";
     const std::string OPPONENT_FOUND = "OPPONENT_FOUND";
 }
+
+#endif

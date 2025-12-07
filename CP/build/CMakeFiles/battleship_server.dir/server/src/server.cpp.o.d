@@ -161,17 +161,18 @@ CMakeFiles/battleship_server.dir/server/src/server.cpp.o: \
  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h \
- /home/daalginichev/OS/CP/server/include/Game.h \
- /home/daalginichev/OS/CP/server/include/Player.h \
- /home/daalginichev/OS/CP/server/include/Mutex.h \
- /home/daalginichev/OS/CP/common/Constants.h /usr/include/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
- /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/mutex \
+ /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
+ /usr/include/c++/13/cstdint /usr/include/c++/13/limits \
+ /usr/include/c++/13/ctime /usr/include/c++/13/bits/parse_numbers.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
+ /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h /usr/include/c++/13/thread \
+ /usr/include/c++/13/bits/std_thread.h \
+ /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/atomic \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
- /usr/include/c++/13/stdlib.h /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
  /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
  /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
@@ -184,28 +185,30 @@ CMakeFiles/battleship_server.dir/server/src/server.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
- /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/unistd.h \
+ /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+ /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/linux/falloc.h /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h /usr/include/c++/13/algorithm \
- /usr/include/c++/13/bits/stl_algo.h \
- /usr/include/c++/13/bits/algorithmfwd.h \
- /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
- /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
- /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
+ /usr/include/linux/close_range.h /usr/include/poll.h \
+ /usr/include/x86_64-linux-gnu/sys/poll.h \
+ /usr/include/x86_64-linux-gnu/bits/poll.h \
+ /home/daalginichev/OS/CP/server/include/Game.h \
+ /home/daalginichev/OS/CP/server/include/Player.h \
+ /home/daalginichev/OS/CP/common/../common/Constants.h \
+ /home/daalginichev/OS/CP/common/Constants.h \
+ /home/daalginichev/OS/CP/common/Protocol.h /usr/include/c++/13/iostream \
+ /usr/include/c++/13/ostream /usr/include/c++/13/ios \
+ /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/bits/locale_classes.h \
  /usr/include/c++/13/bits/locale_classes.tcc \
- /usr/include/c++/13/system_error \
- /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
- /usr/include/c++/13/stdexcept /usr/include/c++/13/streambuf \
- /usr/include/c++/13/bits/streambuf.tcc \
+ /usr/include/c++/13/system_error /usr/include/c++/13/stdexcept \
+ /usr/include/c++/13/streambuf /usr/include/c++/13/bits/streambuf.tcc \
  /usr/include/c++/13/bits/basic_ios.h \
  /usr/include/c++/13/bits/locale_facets.h /usr/include/c++/13/cwctype \
  /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
@@ -216,5 +219,11 @@ CMakeFiles/battleship_server.dir/server/src/server.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/sstream \
- /usr/include/c++/13/bits/sstream.tcc \
- /home/daalginichev/OS/CP/common/Protocol.h
+ /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/cstring \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h

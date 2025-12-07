@@ -1,22 +1,21 @@
 #include "Player.h"
-
 #include <sstream>
 
-Player::Player(const std::string& login, int id) : login(login), wins(0), losses(0), playerId(id) {
-}
+Player::Player(const std::string& login, int id) 
+    : login(login), wins(0), losses(0), playerId(id) {}
 
 std::string Player::getLogin() const {
-    LockGuard lock(statsMutex);
+    std::lock_guard<std::mutex> lock(statsMutex);
     return login;
 }
 
 int Player::getWins() const {
-    LockGuard lock(statsMutex);
+    std::lock_guard<std::mutex> lock(statsMutex);
     return wins;
 }
 
 int Player::getLosses() const {
-    LockGuard lock(statsMutex);
+    std::lock_guard<std::mutex> lock(statsMutex);
     return losses;
 }
 
@@ -25,26 +24,25 @@ int Player::getId() const {
 }
 
 void Player::addWin() {
-    LockGuard lock(statsMutex);
-    ++wins;
+    std::lock_guard<std::mutex> lock(statsMutex);
+    wins++;
 }
 
 void Player::addLoss() {
-    LockGuard lock(statsMutex);
-    ++losses;
+    std::lock_guard<std::mutex> lock(statsMutex);
+    losses++;
 }
 
 std::string Player::getStats() const {
-    LockGuard lock(statsMutex);
+    std::lock_guard<std::mutex> lock(statsMutex);
     std::stringstream ss;
-    ss << "Данные игрока " << login << std::endl;
-    ss << "Побед: " << wins << std::endl;
-    ss << "Поражений: " << losses << std::endl;
-    ss << "Всего игр: " << (wins + losses) << std::endl;
+    ss << "Статистика игрока " << login << ":\n";
+    ss << "Побед: " << wins << "\n";
+    ss << "Поражений: " << losses << "\n";
+    ss << "Всего игр: " << (wins + losses) << "\n";
     if (wins + losses > 0) {
         double winRate = (static_cast<double>(wins) / (wins + losses)) * 100;
-        ss << "Процент побед: " << winRate << std::endl;
+        ss << "Процент побед: " << winRate << "%\n";
     }
-
     return ss.str();
 }

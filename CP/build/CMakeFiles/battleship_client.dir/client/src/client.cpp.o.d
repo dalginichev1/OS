@@ -116,16 +116,17 @@ CMakeFiles/battleship_client.dir/client/src/client.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
+ /home/daalginichev/OS/CP/client/include/PipeClient.h \
  /home/daalginichev/OS/CP/client/include/GameBoard.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/daalginichev/OS/CP/common/Constants.h \
- /home/daalginichev/OS/CP/client/include/PipeClient.h \
- /home/daalginichev/OS/CP/common/Protocol.h /usr/include/c++/13/iostream \
- /usr/include/c++/13/ostream /usr/include/c++/13/ios \
- /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
+ /home/daalginichev/OS/CP/common/../common/Constants.h \
+ /home/daalginichev/OS/CP/common/../common/Protocol.h \
+ /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
+ /usr/include/c++/13/ios /usr/include/c++/13/exception \
+ /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
  /usr/include/c++/13/bits/ios_base.h /usr/include/c++/13/ext/atomicity.h \
@@ -160,11 +161,14 @@ CMakeFiles/battleship_client.dir/client/src/client.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/sstream \
- /usr/include/c++/13/bits/sstream.tcc /usr/include/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
- /usr/include/x86_64-linux-gnu/bits/environments.h \
- /usr/include/x86_64-linux-gnu/bits/confname.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
- /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h
+ /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/thread \
+ /usr/include/c++/13/bits/std_thread.h \
+ /usr/include/c++/13/bits/unique_ptr.h \
+ /usr/include/c++/13/bits/this_thread_sleep.h \
+ /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
+ /usr/include/c++/13/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+ /usr/include/c++/13/limits /usr/include/c++/13/ctime \
+ /usr/include/c++/13/bits/parse_numbers.h /usr/include/c++/13/chrono

@@ -1,0 +1,105 @@
+\section{Результаты тестирования}
+
+\subsection*{Методика тестирования}
+Программа была протестирована на массивах трех размеров: 1 миллион, 5 миллионов и 10 миллионов элементов. Для каждого размера массива измерялось время выполнения при различном количестве потоков (от 1 до 64).
+
+\subsection*{Результаты для массива 1 млн элементов}
+
+\begin{itemize}
+\item Максимальное ускорение: $\approx$9 раз
+\item Оптимальное количество потоков: 4-8
+\item Эффективность при 4 потоках: $\approx$50\%
+\item Насыщение производительности: после 16 потоков
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{~/OS/Lab_2/best_graph/speedup_1млн.png}
+\caption{График ускорения (массив 1 млн элементов)}
+\label{fig:speedup_1m}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{~/OS/Lab_2/best_graph/efficiency_1млн.png}
+\caption{График эффективности (массив 1 млн элементов)}
+\label{fig:efficiency_1m}
+\end{figure}
+
+\subsection*{Результаты для массива 5 млн элементов}
+
+\begin{itemize}
+\item Максимальное ускорение: $\approx$10.3 раз
+\item Оптимальное количество потоков: 8-16
+\item Эффективность при 8 потоках: $\approx$50\%
+\item Насыщение производительности: после 32 потоков
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{~/OS/Lab_2/best_graph/speedup_5млн.png}
+\caption{График ускорения (массив 5 млн элементов)}
+\label{fig:speedup_5m}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{~/OS/Lab_2/best_graph/efficiency_5млн.png}
+\caption{График эффективности (массив 5 млн элементов)}
+\label{fig:efficiency_5m}
+\end{figure}
+
+\subsection*{Результаты для массива 10 млн элементов}
+
+\begin{itemize}
+\item Максимальное ускорение: $\approx$14 раз
+\item Оптимальное количество потоков: 16-32
+\item Эффективность при 16 потоках: $\approx$50\%
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{~/OS/Lab_2/best_graph/speedup_10млн.png}
+\caption{График ускорения (массив 10 млн элементов)}
+\label{fig:speedup_10m}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{~/OS/Lab_2/best_graph/efficiency_10млн.png}
+\caption{График эффективности (массив 10 млн элементов)}
+\label{fig:efficiency_10m}
+\end{figure}
+
+\subsection*{Сравнительный анализ}
+
+\begin{itemize}
+\item \textbf{Зависимость ускорения от размера массива}:
+    \begin{itemize}
+    \item 1 млн элементов: ускорение до 9 раз
+    \item 5 млн элементов: ускорение до 10.3 раз
+    \item 10 млн элементов: ускорение до 14 раз
+    \end{itemize}
+
+\item \textbf{Оптимальное количество потоков}:
+    \begin{itemize}
+    \item 1 млн: 4-8 потоков
+    \item 5 млн: 8-16 потоков
+    \item 10 млн: 16-32 потока
+    \end{itemize}
+
+\item \textbf{Эффективность использования ресурсов}:
+    \begin{itemize}
+    \item Меньшие массивы достигают пиковой эффективности при меньшем количестве потоков
+    \item Большие массивы позволяют эффективно использовать больше потоков
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Выводы}
+
+\begin{itemize}
+\item Программа демонстрирует хорошую масштабируемость, особенно для больших массивов данных
+\item Наблюдается четкая зависимость: чем больше размер массива, тем больше потоков можно эффективно использовать
+\item Максимальное ускорение достигает 14 раз для массива из 10 миллионов элементов
+\item Для практического применения рекомендуется выбирать количество потоков в зависимости от размера данных
+\end{itemize}

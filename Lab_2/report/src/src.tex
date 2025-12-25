@@ -1,0 +1,43 @@
+\section{Метод решения}
+Для реализации параллельной сортировки используется модифицированный алгоритм QuickSort:
+\begin{itemize}
+    \item Массив разбивается на части по количеству потоков
+    \item Каждая часть сортируется в отдельном потоке
+    \item После завершения всех потоков выполняется слияние отсортированных частей
+\end{itemize}
+
+Ключевые компоненты программы:
+\begin{itemize}
+    \item \texttt{QuickSort.hpp} - заголовочный файл с объявлением класса ParallelQuickSort
+    \item \texttt{main.cpp} - точка входа, взаимодействие с пользователем
+    \item \texttt{quicksort.cpp} - реализация параллельного алгоритма сортировки
+    \item \texttt{Thread.hpp/cpp} - обертка для работы с потоками POSIX
+\end{itemize}
+
+\section{Описание программы}
+
+\subsection*{Архитектура программы}
+Программа использует объектно-ориентированный подход. Основной класс \texttt{ParallelQuickSort} инкапсулирует всю логику параллельной сортировки:
+
+\begin{itemize}
+    \item Разделение массива на части для параллельной обработки
+    \item Создание и управление потоками
+    \item Реализация алгоритма QuickSort
+    \item Слияние отсортированных частей
+\end{itemize}
+
+\subsection*{Основные функции}
+
+\textbf{Класс ParallelQuickSort:}
+\begin{itemize}
+    \item \texttt{partition()} - разделение массива относительно опорного элемента
+    \item \texttt{quicksort()} - рекурсивная реализация алгоритма QuickSort
+    \item \texttt{quicksort\_thread()} - функция для выполнения в потоке
+    \item \texttt{sort()} - основной метод, организующий параллельную сортировку
+\end{itemize}
+
+\textbf{Класс Thread:}
+\begin{itemize}
+    \item \texttt{create()} - создание потока
+    \item \texttt{join()} - ожидание завершения потока
+\end{itemize}

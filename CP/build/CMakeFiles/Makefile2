@@ -63,70 +63,101 @@ CMAKE_BINARY_DIR = /home/daalginichev/OS/CP/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/battleship_server.dir/all
-all: CMakeFiles/battleship_client.dir/all
+all: server/all
+all: client/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: server/preinstall
+preinstall: client/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/battleship_server.dir/clean
-clean: CMakeFiles/battleship_client.dir/clean
+clean: server/clean
+clean: client/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/battleship_server.dir
+# Directory level rules for directory client
 
-# All Build rule for target.
-CMakeFiles/battleship_server.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship_server.dir/build.make CMakeFiles/battleship_server.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship_server.dir/build.make CMakeFiles/battleship_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/CP/build/CMakeFiles --progress-num=6,7,8,9,10,11 "Built target battleship_server"
-.PHONY : CMakeFiles/battleship_server.dir/all
+# Recursive "all" directory target.
+client/all: client/CMakeFiles/client.dir/all
+.PHONY : client/all
 
-# Build rule for subdir invocation for target.
-CMakeFiles/battleship_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/CP/build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/battleship_server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/CP/build/CMakeFiles 0
-.PHONY : CMakeFiles/battleship_server.dir/rule
+# Recursive "preinstall" directory target.
+client/preinstall:
+.PHONY : client/preinstall
 
-# Convenience name for target.
-battleship_server: CMakeFiles/battleship_server.dir/rule
-.PHONY : battleship_server
-
-# clean rule for target.
-CMakeFiles/battleship_server.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship_server.dir/build.make CMakeFiles/battleship_server.dir/clean
-.PHONY : CMakeFiles/battleship_server.dir/clean
+# Recursive "clean" directory target.
+client/clean: client/CMakeFiles/client.dir/clean
+.PHONY : client/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/battleship_client.dir
+# Directory level rules for directory server
+
+# Recursive "all" directory target.
+server/all: server/CMakeFiles/server.dir/all
+.PHONY : server/all
+
+# Recursive "preinstall" directory target.
+server/preinstall:
+.PHONY : server/preinstall
+
+# Recursive "clean" directory target.
+server/clean: server/CMakeFiles/server.dir/clean
+.PHONY : server/clean
+
+#=============================================================================
+# Target rules for target server/CMakeFiles/server.dir
 
 # All Build rule for target.
-CMakeFiles/battleship_client.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship_client.dir/build.make CMakeFiles/battleship_client.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship_client.dir/build.make CMakeFiles/battleship_client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/CP/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target battleship_client"
-.PHONY : CMakeFiles/battleship_client.dir/all
+server/CMakeFiles/server.dir/all:
+	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/depend
+	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/CP/build/CMakeFiles --progress-num=5,6,7,8,9 "Built target server"
+.PHONY : server/CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/battleship_client.dir/rule: cmake_check_build_system
+server/CMakeFiles/server.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/CP/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/battleship_client.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/CMakeFiles/server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/CP/build/CMakeFiles 0
-.PHONY : CMakeFiles/battleship_client.dir/rule
+.PHONY : server/CMakeFiles/server.dir/rule
 
 # Convenience name for target.
-battleship_client: CMakeFiles/battleship_client.dir/rule
-.PHONY : battleship_client
+server: server/CMakeFiles/server.dir/rule
+.PHONY : server
 
 # clean rule for target.
-CMakeFiles/battleship_client.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship_client.dir/build.make CMakeFiles/battleship_client.dir/clean
-.PHONY : CMakeFiles/battleship_client.dir/clean
+server/CMakeFiles/server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/clean
+.PHONY : server/CMakeFiles/server.dir/clean
+
+#=============================================================================
+# Target rules for target client/CMakeFiles/client.dir
+
+# All Build rule for target.
+client/CMakeFiles/client.dir/all:
+	$(MAKE) $(MAKESILENT) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/depend
+	$(MAKE) $(MAKESILENT) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/daalginichev/OS/CP/build/CMakeFiles --progress-num=1,2,3,4 "Built target client"
+.PHONY : client/CMakeFiles/client.dir/all
+
+# Build rule for subdir invocation for target.
+client/CMakeFiles/client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/CP/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client/CMakeFiles/client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daalginichev/OS/CP/build/CMakeFiles 0
+.PHONY : client/CMakeFiles/client.dir/rule
+
+# Convenience name for target.
+client: client/CMakeFiles/client.dir/rule
+.PHONY : client
+
+# clean rule for target.
+client/CMakeFiles/client.dir/clean:
+	$(MAKE) $(MAKESILENT) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/clean
+.PHONY : client/CMakeFiles/client.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
